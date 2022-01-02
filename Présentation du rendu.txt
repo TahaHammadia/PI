@@ -1,0 +1,5 @@
+Conserver la partie texte dans le Jupyter Notebook qui sera converti en LateX avec Overleaf.
+
+Mettre les fichier Python dans un zip de fichiers Python.
+
+Préparer une présentation.
