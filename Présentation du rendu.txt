@@ -3,3 +3,5 @@ Conserver la partie texte dans le Jupyter Notebook qui sera converti en LateX av
 Mettre les fichier Python dans un zip de fichiers Python.
 
 Préparer une présentation.
+
+https://realpython.com/linear-programming-python/#linear-programming-with-python
