@@ -30,8 +30,6 @@ def mate3(schools, students):
     N = len(students)
     m = len(schools)
     i = -1
-     # since the algorithm goes through the preferences of the schools in decreasing order of
-     # preference, we have a stable matching when all quotas are met.
     while True:  # stop condition unmodified
         for j in range(m):
             if schools[j].n < schools[j].quota and schools[i].idx < N:

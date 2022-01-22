@@ -32,39 +32,32 @@ def represent(match, col):
 
 # #### Test Task 2:
 
-stud1 = student2([1, 2, 3])
-stud2 = student2([2, 1, 3])
-stud3 = student2([1, 3, 2])
-stud4 = student2([3, 1, 2])
+def test1_2():
 
+    stud1 = student2([1, 2, 3])
+    stud2 = student2([2, 1, 3])
+    stud3 = student2([1, 3, 2])
+    stud4 = student2([3, 1, 2])
 
-s1 = school2([stud4, stud3, stud2, stud1], 2)
-s2 = school2([stud4, stud3, stud2, stud1], 2)
+    s1 = school2([stud4, stud3, stud2, stud1], 2)
+    s2 = school2([stud4, stud3, stud2, stud1], 2)
 
-
-
-represent(mate2([s1, s2], [stud1, stud2, stud3, stud4]), ['r', 'b', 'g', 'y'])
+    represent(mate2([s1, s2], [stud1, stud2, stud3, stud4]), ['r', 'b', 'g', 'y'])
 
 
 # #### Test Task 3:
 
+def test1_3():
 
+    stud1 = student3([1, 2, 3], 0)
+    stud2 = student3([2, 1, 3], 0)
+    stud3 = student3([1, 3, 2], 0)
+    stud4 = student3([3, 1, 2], 1)
 
-stud1 = student3([1, 2, 3], 0)
-stud2 = student3([2, 1, 3], 0)
-stud3 = student3([1, 3, 2], 0)
-stud4 = student3([3, 1, 2], 1)
+    s1 = school3([stud4, stud3, stud2, stud1], 2, [2, 2])
+    s2 = school3([stud4, stud3, stud2, stud1], 2, [2, 2])
 
-
-
-
-s1 = school3([stud4, stud3, stud2, stud1], 2, [2, 2])
-s2 = school3([stud4, stud3, stud2, stud1], 2, [2, 2])
-
-
-
-
-represent(mate3([s1, s2], [stud1, stud2, stud3, stud4]), ['r', 'b', 'g', 'y'])
+    represent(mate3([s1, s2], [stud1, stud2, stud3, stud4]), ['r', 'b', 'g', 'y'])
 
 
 # ### Test instance 2:
@@ -148,10 +141,10 @@ def printAnalyse2_2(n):
 
 
 
-
-printAnalyse2_2(1000)
-printAnalyse2_2(2000)
-printAnalyse2_2(3000)
+def test2_2():
+    printAnalyse2_2(1000)
+    printAnalyse2_2(2000)
+    printAnalyse2_2(3000)
 
 
 # The fraction of people getting their first choices seems independent from the number n or their class. Nearly three fourths of students get their first choice.
@@ -180,10 +173,10 @@ def printAnalyse2_3(n):
 
 
 
-
-printAnalyse2_3(1000)
-printAnalyse2_3(2000)
-printAnalyse2_3(3000)
+def test2_3():
+    printAnalyse2_3(1000)
+    printAnalyse2_3(2000)
+    printAnalyse2_3(3000)
 
 
 # The fraction of people getting their first choices seems independent from the number n or their class. Nearly three fourths of students get their first choice.
@@ -292,10 +285,10 @@ def printAnalyse3_2(n):
 
 
 
-
-printAnalyse3_2(1000)
-printAnalyse3_2(2000)
-printAnalyse3_2(3000)
+def test3_2():
+    printAnalyse3_2(1000)
+    printAnalyse3_2(2000)
+    printAnalyse3_2(3000)
 
 
 # The fraction of people getting their first choices seems independent from the number n or their class. Nearly three fourths of students get their first choice.
@@ -337,10 +330,10 @@ def printAnalyse3_3(n):
 
 
 
-
-printAnalyse3_3(1000)
-printAnalyse3_3(2000)
-printAnalyse3_3(3000)
+def test3_3():
+    printAnalyse3_3(1000)
+    printAnalyse3_3(2000)
+    printAnalyse3_3(3000)
 
 
 # The fraction of people getting their first choices seems independent from the number n or their class. Nearly three fourths of students get their first choice.

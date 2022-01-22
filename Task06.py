@@ -5,8 +5,11 @@ path.append(ad)
 
 from Task02 import *
 from Task03 import *
-from Task04 import *
+from Task05 import *
+from Task04 import rand_instance2, rand_instance3
 import matplotlib.pyplot as plt
+
+
 
 def test(rand_inst,prop):
     r = 0.8
@@ -55,9 +58,9 @@ def printAnalyse6_2(n):
 # In[28]:
 
 
-printAnalyse6_2(1000)
-printAnalyse6_2(2000)
-printAnalyse6_2(3000)
+printAnalyse6_2(100)
+printAnalyse6_2(200)
+printAnalyse6_2(300)
 
 
 # ##### Remark:
@@ -86,12 +89,12 @@ def printAnalyse6_3(n):
     boolean = test(rand_inst, prop3)
     print(n, ":")
     print("s1 verifies the 4/5 - rule ", boolean[0])
-    print("s1 verifies the 4/5 - rule ", boolean[1])
+    print("s2 verifies the 4/5 - rule ", boolean[1])
     print("________________")
 
 
 
 
-printAnalyse6_3(1000)
-printAnalyse6_3(2000)
-printAnalyse6_3(3000)
+printAnalyse6_3(100)
+printAnalyse6_3(200)
+printAnalyse6_3(300)
