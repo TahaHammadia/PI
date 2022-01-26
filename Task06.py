@@ -6,10 +6,29 @@ path.append(ad)
 from Task02 import *
 from Task03 import *
 from Task05 import *
-from Task04 import rand_instance2, rand_instance3
+from Task04 import rand_instance2, rand_instance3, represent
 import matplotlib.pyplot as plt
 
+# ### Test instance 1:
 
+def test1_6():
+
+    prop = [0.75, 0.25]
+
+    stud1 = student3([1, 2, 3], 0)
+    stud2 = student3([2, 1, 3], 0)
+    stud3 = student3([1, 3, 2], 0)
+    stud4 = student3([3, 1, 2], 1)
+
+    s1 = school2([stud4, stud3, stud2, stud1], 2)
+    s2 = school2([stud4, stud3, stud2, stud1], 2)
+
+    fair_rank(s1.prefer, prop)
+    fair_rank(s2.prefer, prop)
+
+    represent(mate2([s1, s2], [stud1, stud2, stud3, stud4]), ['r', 'b', 'g', 'y'])
+
+#______
 
 def test(rand_inst,prop):
     r = 0.8
@@ -57,10 +76,10 @@ def printAnalyse6_2(n):
 
 # In[28]:
 
-
-printAnalyse6_2(100)
-printAnalyse6_2(200)
-printAnalyse6_2(300)
+def test2_6():
+    printAnalyse6_2(1000)
+    printAnalyse6_2(1500)
+    printAnalyse6_2(2000)
 
 
 # ##### Remark:
@@ -94,7 +113,7 @@ def printAnalyse6_3(n):
 
 
 
-
-printAnalyse6_3(100)
-printAnalyse6_3(200)
-printAnalyse6_3(300)
+def test3_6():
+    printAnalyse6_3(1000)
+    printAnalyse6_3(1500)
+    printAnalyse6_3(2000)

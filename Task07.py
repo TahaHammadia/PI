@@ -33,9 +33,9 @@ def demand(studs, table, s, P):
 
 
 
-def T(P, res, studs, schools, table, feasability):
+def T(P, res, studs, schools, table, feasibility):
     """
-    feasability is a function.
+    feasibility is a function.
     """
     test = False
     I = len(studs)
@@ -43,7 +43,7 @@ def T(P, res, studs, schools, table, feasability):
         if res[s][0]:
             if P[s] == I + 1: continue
             res[s][1] = demand(studs, table, s, P)
-            if not feasability(schools[s], res[s][1], studs):
+            if not feasibility(schools[s], res[s][1], studs):
                 P[s] += 1
                 test = True
             else:
@@ -53,7 +53,7 @@ def T(P, res, studs, schools, table, feasability):
 
 
 
-def fixed_algo(studs, schools, feasability):
+def fixed_algo(studs, schools, feasibility):
     """
     We will use the observation that once we find a feasible demand for a
     school, it will be the demand returned by the algorithm.
@@ -61,6 +61,6 @@ def fixed_algo(studs, schools, feasability):
     table = i_s_ps(schools, studs)
     res = [[True, None] for s in range(len(schools))]
     P = [1] * len(schools)
-    while T(P, res, studs, schools, table, feasability):
+    while T(P, res, studs, schools, table, feasibility):
         continue
     return [res[s][1] for s in range(len(schools))]
