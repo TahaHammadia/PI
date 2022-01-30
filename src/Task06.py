@@ -1,5 +1,5 @@
 from sys import path
-ad = "C:/Users/hp 650 G3/Documents/GitHub/PI"
+ad = "C:/Users/hp 650 G3/Documents/GitHub/PI/src"
 # ad =
 path.append(ad)
 

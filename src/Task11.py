@@ -45,9 +45,3 @@ def optimize(w, n, Ws):
     for var in model.variables():
         print(f"{var.name}: {var.value()}")
     return [var.value() for var in model.variables()]
-
-
-w = np.array([[1], [10]])
-n = np.array([[3], [1]])
-Ws = 100
-optimize(w, n, Ws)

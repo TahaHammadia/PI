@@ -1,5 +1,5 @@
 from sys import path
-ad = "C:/Users/hp 650 G3/Documents/GitHub/PI"
+ad = "C:/Users/hp 650 G3/Documents/GitHub/PI/src"
 # ad =
 path.append(ad)
 
@@ -20,7 +20,7 @@ def transf(match):
 
 def represent(match, col):
     res = transf(match)
-    plt.scatter(res[0], res[1], c = col)
+    plt.scatter(res[0], res[1], c = col[:len(res[0])])
     plt.title("Matching of students to schools")
     plt.xlabel("Student")
     plt.ylabel("School")

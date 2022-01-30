@@ -1,36 +1,35 @@
 from sys import path
-ad = "C:/Users/hp 650 G3/Documents/GitHub/PI"
+ad = "C:/Users/hp 650 G3/Documents/GitHub/PI/src"
 # ad =
 path.append(ad)
 
 from Task02 import *
 from Task03 import *
 from Task04 import *
+from Task07 import fixed_algo
 import matplotlib.pyplot as plt
 
 def feasability8(school, students, studsInfo):
+    """
+    students is the list of proposed students.
+    studsInfo is the list of all students which helps get data on them.
+    """
     return school.quota >= len(students)
 
 
 # ### Test Instance 1:
 
+def test8_1():
 
+    stud1 = student2([1, 2, 3])
+    stud2 = student2([2, 1, 3])
+    stud3 = student2([1, 3, 2])
+    stud4 = student2([3, 1, 2])
 
-stud1 = student2([1, 2, 3])
-stud2 = student2([2, 1, 3])
-stud3 = student2([1, 3, 2])
-stud4 = student2([3, 1, 2])
+    s1 = school2([stud4, stud3, stud2, stud1], 2)
+    s2 = school2([stud4, stud3, stud2, stud1], 2)
 
-
-
-
-s1 = school2([stud4, stud3, stud2, stud1], 2)
-s2 = school2([stud4, stud3, stud2, stud1], 2)
-
-
-
-
-represent(fixed_algo([stud1, stud2, stud3, stud4], [s1, s2], feasability8) + [[]], ['r', 'b', 'g', 'y'])
+    represent(fixed_algo([stud1, stud2, stud3, stud4], [s1, s2], feasability8) + [[]], ['r', 'b', 'g', 'y'])
 
 
 
@@ -73,10 +72,10 @@ def printAnalyse8_2(n):
 
 
 
-
-printAnalyse8_2(1000)
-printAnalyse8_2(2000)
-printAnalyse8_2(3000)
+def test8_2():
+    printAnalyse8_2(100)
+    printAnalyse8_2(200)
+    printAnalyse8_2(300)
 
 
 
@@ -130,7 +129,7 @@ def printAnalyse8_3(n):
 
 
 
-
-printAnalyse8_3(1000)
-printAnalyse8_3(2000)
-printAnalyse8_3(3000)
+def test8_3():
+    printAnalyse8_3(100)
+    printAnalyse8_3(200)
+    printAnalyse8_3(300)

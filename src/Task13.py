@@ -1,3 +1,9 @@
+from sys import path
+ad = "C:/Users/hp 650 G3/Documents/GitHub/PI/src"
+# ad =
+path.append(ad)
+
+from Task11 import optimize
 import numpy as np
 
 class school13:
@@ -12,7 +18,11 @@ class school13:
 
 class student13:
 
-    def __init__(self, group):
+    def __init__(self, group, id = None):
+        """
+        id helps use represent
+        """
+        self.id = id
         self.group = group
         self.affected = False
 
@@ -22,47 +32,42 @@ def affect(N, G, schools, w):
     N is the number of students which is supposed to be known
     G is the number of groups
     w is the column containing the costs of the different groups
+
+    The function acts directly on school13.prom. It returns also the loss value and the number of students who got a school.
     """
 
     cpt = N # cpt counts the number of students who do not have a school yet
     rank = 0
+    loss = 0
 
-    while cpt > 0:
+    while cpt > 0 and rank < len(schools):
+
         for school in  schools:
+
             n = [0]*G
             n = np.array([[elt] for elt in n])
             students = []
             to_opt = False
             for stud in school.studs[rank]:
+            # we work on the students ranking a given school at the rank position
                 if not stud.affected:
                     students.append(stud)
                     n[stud.group] += 1
                     to_opt = True
+                    # we optimize when there are unaffected students ranking
 
                 if to_opt:
-                    print("***|||**", w, n, school.Ws)
                     res = optimize(w, n, school.Ws)
 
             for stud in students:
                 if res[stud.group] > 0:
                     stud.affected = True
-                    cpt -= 1
-                    res[stud.group] -= 1
-                    school.prom.append(stud)
-                    school.Ws -= w[stud.group,0]
+                    cpt -= 1 # adjust the count of students
+                    loss += (1 + rank)**2 # adjust the loss
+                    res[stud.group] -= 1 # adjust the count of groups
+                    school.prom.append(stud) # add the student to the promotion
+                    school.Ws -= w[stud.group,0] # update the budget constraint
+        rank += 1
+    loss += cpt * (len(schools) + 1) ** 2 # count the students who do not have a school
+    return loss, N - cpt
 
-student1 = student13(0)
-student2 = student13(0)
-student3 = student13(0)
-student4 = student13(1)
-
-w = np.array([[1], [10]])
-
-G, N = 2, 4
-
-s1 = school13([[student3, student1], [student2]], 11)
-s2 = school13([[student4, student2], [student1]], 11)
-
-schools = [s1, s2]
-
-affect(N, G, schools, w)

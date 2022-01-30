@@ -1,14 +1,19 @@
 from sys import path
-ad = "C:/Users/hp 650 G3/Documents/GitHub/PI"
+ad = "C:/Users/hp 650 G3/Documents/GitHub/PI/src"
 # ad =
 path.append(ad)
 
 from Task02 import *
 from Task03 import *
 from Task04 import *
+from Task07 import fixed_algo
 import matplotlib.pyplot as plt
 
 def feasability9(school, students, studsInfo):
+    """
+    students is the list of proposed students.
+    studsInfo is the list of all students which helps get data on them.
+    """
     if len(students) > school.quota: return False
     cpt = [0] * len(school.quota_grp)
     for elt in students:
@@ -20,22 +25,17 @@ def feasability9(school, students, studsInfo):
 
 # ### Test Instance 1:
 
+def test9_1():
 
+    stud1 = student3([1, 2, 3], 0)
+    stud2 = student3([2, 1, 3], 0)
+    stud3 = student3([1, 3, 2], 0)
+    stud4 = student3([3, 1, 2], 1)
 
-stud1 = student3([1, 2, 3], 0)
-stud2 = student3([2, 1, 3], 0)
-stud3 = student3([1, 3, 2], 0)
-stud4 = student3([3, 1, 2], 1)
+    s1 = school3([stud4, stud3, stud2, stud1], 2, [2, 2])
+    s2 = school3([stud4, stud3, stud2, stud1], 2, [2, 2])
 
-
-
-
-s1 = school3([stud4, stud3, stud2, stud1], 2, [2, 2])
-s2 = school3([stud4, stud3, stud2, stud1], 2, [2, 2])
-
-
-
-represent(fixed_algo([stud1, stud2, stud3, stud4], [s1, s2], feasability9) + [[]], ['r', 'b', 'g', 'y'])
+    represent(fixed_algo([stud1, stud2, stud3, stud4], [s1, s2], feasability9) + [[]], ['r', 'b', 'g', 'y'])
 
 
 
@@ -76,10 +76,11 @@ def printAnalyse9_2(n):
 
 
 
+def test9_2():
 
-printAnalyse9_2(1000)
-printAnalyse9_2(2000)
-printAnalyse9_2(3000)
+    printAnalyse9_2(200)
+    printAnalyse9_2(300)
+    printAnalyse9_2(400)
 
 
 
@@ -133,8 +134,8 @@ def printAnalyse9_3(n):
 
 
 
+def test9_3():
 
-
-printAnalyse9_3(1000)
-printAnalyse9_3(2000)
-printAnalyse9_3(3000)
+    printAnalyse9_3(200)
+    printAnalyse9_3(300)
+    printAnalyse9_3(400)

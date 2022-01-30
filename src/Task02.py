@@ -24,6 +24,9 @@ class school2:
 
 
 def mate2(schools, students):
+    """
+    Returns a list of lists [[...], ..., [...]]. Each list contains a list of the NUMBER of the students that attend the corresponding school. The last list contains the NUMBERS of the students who do not get any school.
+    """
     N = len(students)
     m = len(schools)
     i = -1
@@ -44,6 +47,8 @@ def mate2(schools, students):
                 schools[i].n += 1
                 stud.schlStud = i
             schools[i].idx += 1
+
+    # preparing the promised format
     res = [list() for k in range(m + 1)]
     for k in range(N):
         res[students[k].schlStud].append(k)
