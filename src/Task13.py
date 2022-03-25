@@ -29,6 +29,8 @@ class student13:
 
 def affect(N, G, schools, w):
     """
+    Affects students to schools with our greedy algorithm.
+
     N is the number of students which is supposed to be known
     G is the number of groups
     w is the column containing the costs of the different groups

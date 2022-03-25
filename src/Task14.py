@@ -12,6 +12,10 @@ from Task13 import *
 # ## Instance 1
 
 def test14_1():
+    """
+    Shows a plot associating each student to a school.
+    This function tests our algorithm in task 13.
+    """
 
     student1 = student13(0, 0)
     student2 = student13(0, 1)
@@ -33,10 +37,14 @@ def test14_1():
     return loss
 
 
-
-# ## Instance 2
+# ### Instance 2 and 3:
 
 def app14(studs, grp, list_s1, list_s2):
+    """
+    Procedure that associates a student to a school randomly.
+    Uses lists list_s1 and list_s2 in order to optimize the definition of s1 and s2.
+    """
+
     s = random()
     if s >= 0.5 :
         stud = student13(grp)
@@ -46,8 +54,12 @@ def app14(studs, grp, list_s1, list_s2):
         list_s2.append(stud)
     studs.append(stud)
 
+# ## Instance 2:
+
 def rand_instance2_14(n):
     """
+    Returns a random instance corresponding to instance 2.
+
     Since all the students rank both schools. No need to care about ranking the students within the i^th list.
     """
     studs = []
@@ -61,13 +73,16 @@ def rand_instance2_14(n):
     for k in range(m + 1, n):
         app14(studs, 1, list_s1, list_s2)
 
-    s1 = school13([list_s1] + [list_s2], 3 * n)
-    s2 = school13([list_s2] + [list_s1], 3 * n)
+    s1 = school13([list_s1] + [list_s2], n)
+    s2 = school13([list_s2] + [list_s1], n)
 
     return s1, s2
 
 def test14_2():
-    loss, n_prom = [], []
+    """
+    Show the evolution of the penalty and the number of accepted students in function of the number of candidates for instance 2.
+    """
+    loss, n_prom, Res = [], [], []
     for n in range(10, 51):
         s1, s2 = rand_instance2_14(n)
         temp1, temp2 = affect(n, 2, [s1, s2], np.array([[1],[10]]))
@@ -87,10 +102,14 @@ def test14_2():
     plt.title("Test for instance 2")
     plt.show()
 
-
-# ## Instance 3
+# ## Instance 3:
 
 def rand_instance3_14(n):
+    """
+    Returns a random instance corresponding to instance 3.
+
+    Since all the students rank both schools. No need to care about ranking the students within the i^th list.
+    """
 
     studs = []
     list_s1 = []
@@ -114,6 +133,9 @@ def rand_instance3_14(n):
     return s1, s2
 
 def test14_3():
+    """
+    Show the evolution of the penalty and the number of accepted students in function of the number of candidates for instance 3.
+    """
     loss, n_prom = [], []
     for n in range(10, 51):
         s1, s2 = rand_instance3_14(n)

@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 def feasability10(school, students, studsInfo):
     """
+    feasibility tests if the 4/5-rule is satisfied by the school.
     students is the list of proposed students.
     studsInfo is the list of all students which helps get data on them.
     """
@@ -27,6 +28,10 @@ def feasability10(school, students, studsInfo):
 
 
 def test10_1():
+    """
+    Shows a plot associating each student to a school.
+    This function tests for the algorithm of part 4 with the 4/5-rule.
+    """
 
     stud1 = student3([1, 2, 3], 0)
     stud2 = student3([2, 1, 3], 0)
@@ -39,8 +44,7 @@ def test10_1():
     print(fixed_algo([stud1, stud2, stud3, stud4], [s1, s2], feasability10))
 
 
-# ### Test Instance 2:
-
+# ### Test Instance 2 and Instance 3:
 
 def analyse10(n, rand_inst):
     """
@@ -56,7 +60,13 @@ def analyse10(n, rand_inst):
         elif len(elt) == 1: return False
     return True
 
+# ### Test Instance 2:
+
+
 def printAnalyse10_2(n):
+    """
+    Prints the result of the analyse10 for N = 200 trials with n students for instance 2.
+    """
     N = 200
     cpt = 0
     for _ in range(N):
@@ -71,6 +81,9 @@ def test10_2():
 # ### Test Instance 3:
 
 def printAnalyse10_3(n):
+    """
+    Prints the result of the analyse10 for N = 200 trials with n students for instance 3.
+    """
     N = 200
     cpt = 0
     for _ in range(N):
@@ -80,5 +93,4 @@ def printAnalyse10_3(n):
 
 
 def test10_3():
-
     printAnalyse10_3(1000)

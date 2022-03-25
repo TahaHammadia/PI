@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 def feasability9(school, students, studsInfo):
     """
+    feasability tests if the group quotas and the total quota are met.
     students is the list of proposed students.
     studsInfo is the list of all students which helps get data on them.
     """
@@ -26,7 +27,10 @@ def feasability9(school, students, studsInfo):
 # ### Test Instance 1:
 
 def test9_1():
-
+    """
+    Shows a plot associating each student to a school.
+    This function tests for the algorithm of part 4 with the group quotas constraint.
+    """
     stud1 = student3([1, 2, 3], 0)
     stud2 = student3([2, 1, 3], 0)
     stud3 = student3([1, 3, 2], 0)
@@ -43,6 +47,9 @@ def test9_1():
 
 
 def analyse9_2(n, rand_inst):
+    """
+    Returns the number of students from classes A, and B to get their first choice when we use the algorithm of part 4 with the group quotas constraint.
+    """
     res = fixed_algo(rand_inst[1], rand_inst[0], feasability9)
     cptA, cptB = 0, 0
     for s in [0, 1]:
@@ -56,6 +63,9 @@ def analyse9_2(n, rand_inst):
 
 
 def printAnalyse9_2(n):
+    """
+    Prints the average number of students who get their first choice and their percentages for each group of instance 2. This tests for the algorithm of part 4 with the group quotas constraint.
+    """
     m = int(9 * n / 10)
     N = 200
 
@@ -89,6 +99,9 @@ def test9_2():
 
 
 def analyse9_3(n, rand_inst):
+    """
+    Returns the number of students from classes A, B, C and D to get their first choice when we use the algorithm of part 4 with the group quotas constraint.
+    """
     res = fixed_algo(rand_inst[1], rand_inst[0], feasability9)
     cptA, cptB, cptC, cptD = 0, 0, 0, 0
     for s in [0, 1]:
@@ -104,6 +117,9 @@ def analyse9_3(n, rand_inst):
 
 
 def printAnalyse9_3(n):
+    """
+    Prints the average number of students who get their first choice and their percentages for each group of instance 3. This tests for the algorithm of part 4 with the group quotas constraint.
+    """
     m1 = n // 2
     m2 = int(4 * n / 5)
     m3 = int(19 * n / 20)

@@ -1,8 +1,9 @@
 def fair_rank(L, prop):
     """
+    Procedure that changes the preference list of a school.
     L is a list of ranked students from the most preferred school to the least preferred by the school.
     prop is the list of proportions of the groups in the population.
-    This function is a procedure that acts directly on the list of preferences.
+    Acts directly on the list of preferences.
     """
     r = 0.8
     R = 1.2

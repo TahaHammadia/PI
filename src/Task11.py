@@ -3,6 +3,8 @@ from pulp import LpMaximize, LpProblem, LpStatus, lpSum, LpVariable
 
 def optimize(w, n, Ws):
     """
+    Returns the result of the integer linear program applied to our situation.
+
     w is the list of costs of the different groups.
     n is the number of candidate students from each group.
     Ws is the budget of the school.

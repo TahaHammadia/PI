@@ -10,7 +10,12 @@ from random import gauss, random
 from math import sqrt
 
 
+# ### Test Instance 1:
+
 def transf(match):
+    """
+    Transforms the match returned by mate2 and by mate3 into a format that can be used easily for plotting.
+    """
     res = [], []
     for i in range(len(match) - 1):
         for stud in match[i]:
@@ -19,6 +24,9 @@ def transf(match):
     return res
 
 def represent(match, col):
+    """
+    Function that codes the actual plotting.
+    """
     res = transf(match)
     plt.scatter(res[0], res[1], c = col[:len(res[0])])
     plt.title("Matching of students to schools")
@@ -27,13 +35,13 @@ def represent(match, col):
     plt.show()
     plt.close()
 
-
-# ### Test Instance 1:
-
 # #### Test Task 2:
 
-def test1_2():
-
+def test4_1_2():
+    """
+    Shows a plot associating each student to a school.
+    This function tests for mate2.
+    """
     stud1 = student2([1, 2, 3])
     stud2 = student2([2, 1, 3])
     stud3 = student2([1, 3, 2])
@@ -47,7 +55,11 @@ def test1_2():
 
 # #### Test Task 3:
 
-def test1_3():
+def test4_1_3():
+    """
+    Shows a plot associating each student to a school.
+    This function tests for mate3.
+    """
 
     stud1 = student3([1, 2, 3], 0)
     stud2 = student3([2, 1, 3], 0)
@@ -60,12 +72,15 @@ def test1_3():
     represent(mate3([s1, s2], [stud1, stud2, stud3, stud4]), ['r', 'b', 'g', 'y'])
 
 
+
+
+
 # ### Test instance 2:
 
-
-
-
 def app(studs, grp):
+    """
+    Procedure that associates a student to a school randomly.
+    """
     s = random()
     if s >= 0.5 : choice = [1, 2]
     else: choice = [2, 1]
@@ -73,7 +88,8 @@ def app(studs, grp):
 
 def rand_instance2(n):
     """
-    mate2 works with arguments of the classes school3 and student3.
+    Returns a random instance corresponding to Instance 2.
+    Since, mate2 works with arguments of both the classes school3 and student3, we can use school3 and student3 elements.
     """
     studs = []
     ranQty = []
@@ -95,7 +111,11 @@ def rand_instance2(n):
 
     return [s1, s2], studs
 
+
 def analyse2_2(n, rand_inst):
+    """
+    Returns the number of students from classes A and B to get their first choice when we use mate2.
+    """
     res = mate2(rand_inst[0], rand_inst[1])
     cptA, cptB = 0, 0
     for s in [0, 1]:
@@ -103,10 +123,13 @@ def analyse2_2(n, rand_inst):
             if rand_inst[1][elt].prefStud[s] == 1:
                 if rand_inst[1][elt].grp == 0: cptA += 1
                 else: cptB += 1
-    return n, cptA, cptB
+    return cptA, cptB
 
 
 def analyse2_3(n, rand_inst):
+    """
+    Returns the number of students from classes A and B to get their first choice when we use mate3.
+    """
     res = mate3(rand_inst[0], rand_inst[1])
     cptA, cptB = 0, 0
     for s in [0, 1]:
@@ -114,7 +137,7 @@ def analyse2_3(n, rand_inst):
             if rand_inst[1][elt].prefStud[s] == 1:
                 if rand_inst[1][elt].grp == 0: cptA += 1
                 else: cptB += 1
-    return n, cptA, cptB
+    return cptA, cptB
 
 
 # #### Test Task 2:
@@ -122,6 +145,9 @@ def analyse2_3(n, rand_inst):
 
 
 def printAnalyse2_2(n):
+    """
+    Prints the average number of students who get their first choice and their percentages for each group of instance 2. This tests for the mate2 function.
+    """
     m = int(9 * n / 10)
     N = 200
 
@@ -129,7 +155,7 @@ def printAnalyse2_2(n):
 
     for _ in range(N):
         rand_inst = rand_instance2(n)
-        n, cptA, cptB = analyse2_2(n, rand_inst)
+        cptA, cptB = analyse2_2(n, rand_inst)
         cpta += cptA
         cptb += cptB
     print(n, ":")
@@ -141,7 +167,7 @@ def printAnalyse2_2(n):
 
 
 
-def test2_2():
+def test4_2_2():
     printAnalyse2_2(1000)
     printAnalyse2_2(2000)
     printAnalyse2_2(3000)
@@ -154,6 +180,9 @@ def test2_2():
 
 
 def printAnalyse2_3(n):
+    """
+    Prints the average number of students who get their first choice and their percentages for each group of instance 2. This tests for the mate3 function.
+    """
     m = int(9 * n / 10)
     N = 200
 
@@ -161,7 +190,7 @@ def printAnalyse2_3(n):
 
     for _ in range(N):
         rand_inst = rand_instance2(n)
-        n, cptA, cptB = analyse2_3(n, rand_inst)
+        cptA, cptB = analyse2_3(n, rand_inst)
         cpta += cptA
         cptb += cptB
     print(n, ":")
@@ -173,28 +202,23 @@ def printAnalyse2_3(n):
 
 
 
-def test2_3():
+def test4_2_3():
     printAnalyse2_3(1000)
     printAnalyse2_3(2000)
     printAnalyse2_3(3000)
 
 
-# The fraction of people getting their first choices seems independent from the number n or their class. Nearly three fourths of students get their first choice.
+
+
+
 
 # ### Test instance 3:
 
 
-
-
-def app(studs, grp):
-    s = random()
-    if s >= 0.5 : choice = [1, 2]
-    else: choice = [2, 1]
-    studs.append(student3(choice, grp))
-
 def rand_instance3(n):
     """
-    mate2 works with arguments of the classes school3 and student3.
+    Returns a random instance corresponding to Instance 3.
+    Since, mate2 works with arguments of both the classes school3 and student3, we can use school3 and student3 elements.
     """
     studs = []
     ranQty = []
@@ -224,7 +248,11 @@ def rand_instance3(n):
 
     return [s1, s2], studs
 
+
 def analyse3_2(n, rand_inst):
+    """
+    Returns the number of students from classes A, B, C and D to get their first choice when we use mate2.
+    """
     res = mate2(rand_inst[0], rand_inst[1])
     cptA, cptB, cptC, cptD = 0, 0, 0, 0
     for s in [0, 1]:
@@ -238,6 +266,9 @@ def analyse3_2(n, rand_inst):
 
 
 def analyse3_3(n, rand_inst):
+    """
+    Returns the number of students from classes A, B, C and D to get their first choice when we use mate3.
+    """
     res = mate3(rand_inst[0], rand_inst[1])
     cptA, cptB, cptC, cptD = 0, 0, 0, 0
     for s in [0, 1]:
@@ -255,6 +286,9 @@ def analyse3_3(n, rand_inst):
 
 
 def printAnalyse3_2(n):
+    """
+    Prints the average number of students who get their first choice and their percentages for each group of instance 3. This tests for the mate2 function.
+    """
     m1 = n // 2
     m2 = int(4 * n / 5)
     m3 = int(19 * n / 20)
@@ -285,13 +319,15 @@ def printAnalyse3_2(n):
 
 
 
-def test3_2():
+def test4_3_2():
     printAnalyse3_2(1000)
     printAnalyse3_2(2000)
     printAnalyse3_2(3000)
 
 
-# The fraction of people getting their first choices seems independent from the number n or their class. Nearly three fourths of students get their first choice.
+
+
+
 
 # #### Test Task 3:
 
@@ -299,6 +335,9 @@ def test3_2():
 
 
 def printAnalyse3_3(n):
+    """
+    Prints the average number of students who get their first choice and their percentages for each group of instance 3. This tests for the mate3 function.
+    """
     m1 = n // 2
     m2 = int(4 * n / 5)
     m3 = int(19 * n / 20)
@@ -330,7 +369,7 @@ def printAnalyse3_3(n):
 
 
 
-def test3_3():
+def test4_3_3():
     printAnalyse3_3(1000)
     printAnalyse3_3(2000)
     printAnalyse3_3(3000)

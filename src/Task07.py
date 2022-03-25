@@ -35,6 +35,7 @@ def demand(studs, table, s, P):
 
 def T(P, res, studs, schools, table, feasibility):
     """
+    Defines the T operation.
     feasibility is a function.
     """
     test = False
@@ -55,6 +56,7 @@ def T(P, res, studs, schools, table, feasibility):
 
 def fixed_algo(studs, schools, feasibility):
     """
+    Runs the T operation until it finds a fixed point.
     We will use the observation that once we find a feasible demand for a
     school, it will be the demand returned by the algorithm.
     """

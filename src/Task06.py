@@ -9,9 +9,11 @@ from Task05 import *
 from Task04 import rand_instance2, rand_instance3, represent
 import matplotlib.pyplot as plt
 
+
+
 # ### Test instance 1:
 
-def test1_6():
+def test6_1():
 
     prop = [0.75, 0.25]
 
@@ -28,9 +30,13 @@ def test1_6():
 
     represent(mate2([s1, s2], [stud1, stud2, stud3, stud4]), ['r', 'b', 'g', 'y'])
 
-#______
+
+# #### Test instance 2 and 3:
 
 def test(rand_inst,prop):
+    """
+    Determines whether the schools satisfie the 4/5-rule and returns the result in a list.
+    """
     r = 0.8
     R = 1.2
     n = len(prop)
@@ -48,18 +54,17 @@ def test(rand_inst,prop):
     return ret
 
 
+
+
 # ### Test instance 2:
-
-# In[26]:
-
 
 prop2 = [0.9, 0.1]
 
 
-# In[27]:
-
-
 def printAnalyse6_2(n):
+    """
+    Prints if the schools s1 and s2 satisfy the 4/5-rule for instance 2.
+    """
 
     N = 200
 
@@ -74,30 +79,24 @@ def printAnalyse6_2(n):
     print("________________")
 
 
-# In[28]:
 
-def test2_6():
+
+def test6_2():
     printAnalyse6_2(1000)
     printAnalyse6_2(1500)
     printAnalyse6_2(2000)
 
 
-# ##### Remark:
-#
-# The schools do not satistfy rigourously the 4/5-rule because there are not enough candidates.
 
 # ### Test instance 3:
-
-# In[29]:
-
 
 prop3 = [0.5, 0.3, 0.15, 0.05]
 
 
-# In[30]:
-
-
 def printAnalyse6_3(n):
+    """
+    Prints if the schools s1 and s2 satisfy the 4/5-rule for instance 3.
+    """
 
     N = 200
 
@@ -113,7 +112,7 @@ def printAnalyse6_3(n):
 
 
 
-def test3_6():
+def test6_3():
     printAnalyse6_3(1000)
     printAnalyse6_3(1500)
     printAnalyse6_3(2000)

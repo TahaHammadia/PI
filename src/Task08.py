@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 def feasability8(school, students, studsInfo):
     """
+    feasability8 verifies simply if the school respects the quota constraint.
     students is the list of proposed students.
     studsInfo is the list of all students which helps get data on them.
     """
@@ -20,6 +21,10 @@ def feasability8(school, students, studsInfo):
 # ### Test Instance 1:
 
 def test8_1():
+    """
+    Shows a plot associating each student to a school.
+    This function tests for the algorithm of part 4 with the quota constraint.
+    """
 
     stud1 = student2([1, 2, 3])
     stud2 = student2([2, 1, 3])
@@ -39,6 +44,9 @@ def test8_1():
 
 
 def analyse8_2(n, rand_inst):
+    """
+    Returns the number of students from classes A, and B to get their first choice when we use the algorithm of part 4 with the quota constraint.
+    """
     res = fixed_algo(rand_inst[1], rand_inst[0], feasability8)
     cptA, cptB = 0, 0
     for s in [0, 1]:
@@ -46,13 +54,16 @@ def analyse8_2(n, rand_inst):
             if rand_inst[1][elt].prefStud[s] == 1:
                 if rand_inst[1][elt].grp == 0: cptA += 1
                 else: cptB += 1
-    return n, cptA, cptB
+    return cptA, cptB
 
 
 
 
 
 def printAnalyse8_2(n):
+    """
+    Prints the average number of students who get their first choice and their percentages for each group of instance 2. This tests for the algorithm of part 4 with the quota constraint.
+    """
     m = int(9 * n / 10)
     N = 200
 
@@ -60,7 +71,7 @@ def printAnalyse8_2(n):
 
     for _ in range(N):
         rand_inst = rand_instance2(n)
-        n, cptA, cptB = analyse8_2(n, rand_inst)
+        cptA, cptB = analyse8_2(n, rand_inst)
         cpta += cptA
         cptb += cptB
     print(n, ":")
@@ -84,6 +95,9 @@ def test8_2():
 
 
 def analyse8_3(n, rand_inst):
+    """
+    Returns the number of students from classes A, B, C and D to get their first choice when we use the algorithm of part 4 with the quota constraint.
+    """
     res = fixed_algo(rand_inst[1], rand_inst[0], feasability8)
     cptA, cptB, cptC, cptD = 0, 0, 0, 0
     for s in [0, 1]:
@@ -93,12 +107,15 @@ def analyse8_3(n, rand_inst):
                 elif rand_inst[1][elt].grp == 1: cptB += 1
                 elif rand_inst[1][elt].grp == 2: cptC += 1
                 else: cptD += 1
-    return n, cptA, cptB, cptC, cptD
+    return cptA, cptB, cptC, cptD
 
 
 
 
 def printAnalyse8_3(n):
+    """
+    Prints the average number of students who get their first choice and their percentages for each group of instance 3. This tests for the algorithm of part 4 with the quota constraint.
+    """
     m1 = n // 2
     m2 = int(4 * n / 5)
     m3 = int(19 * n / 20)
@@ -108,7 +125,7 @@ def printAnalyse8_3(n):
 
     for _ in range(N):
         rand_inst = rand_instance3(n)
-        n, cptA, cptB, cptC, cptD = analyse8_3(n, rand_inst)
+        cptA, cptB, cptC, cptD = analyse8_3(n, rand_inst)
         cpta += cptA
         cptb += cptB
         cptc += cptC
